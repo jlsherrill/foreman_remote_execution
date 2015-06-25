@@ -3,4 +3,7 @@ FactoryGirl.define do
     f.sequence(:name) { |n| "Template input #{n}" }
     f.input_type 'user'
   end
+
+  factory :targeting do |f|
+  end
 end

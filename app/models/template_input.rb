@@ -7,6 +7,8 @@ class TemplateInput < ActiveRecord::Base
 
   belongs_to :job_template
 
+  has_many :template_invocation_input_values, :dependent => :destroy
+
   validates :name, :presence => true
   validates :input_type, :presence => true, :inclusion => TemplateInput::TYPES.keys
 
