@@ -17,7 +17,7 @@ class TemplateInvocation < ActiveRecord::Base
 
   def provides_required_input_values
     required_input_ids = self.template.template_inputs.where(:required => true).pluck(:id)
-    unless (required_input_ids - self.input_values.pluck(:template_input_id)).empty?
+    unless (required_input_ids - self.input_values.map(&:template_input_id)).empty?
       errors.add(:base, _("Not all required inputs have values."))
     end
   end
